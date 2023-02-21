@@ -96,3 +96,5 @@ router.patch('/:id', (req, res, next) => {
 
     return res.status(200).json(updatedProject)
 })
+
+module.exports = router
