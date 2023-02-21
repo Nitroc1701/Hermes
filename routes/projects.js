@@ -48,3 +48,19 @@ router.get('/:id', (req, res, next) => {
 
     return res.status(200).json(project)
 })
+
+router.delete('/:id', (req, res, next) => {
+    const { id } = req.params
+
+    const project = Project.findById(id)
+
+    if (!project) {
+        return res.status(404).json({
+            error: 'Project not found'
+        })
+    }
+
+    Project.delete(id)
+
+    return res.status(204).json()
+})
