@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     const { name, description, version, author, license, repository } = req.body
 
-    const id = await getNextId();
+    const id = await getNextId()
 
     if (
         !id ||
@@ -95,12 +95,13 @@ router.patch('/:id', async (req, res, next) => {
 })
 
 const getNextId = async () => {
-    const projects = await Project.getAllProjects();
-    const lastItemIndex = projects?.length !== 0 ? projects.length - 1 : undefined;
-    if (lastItemIndex === undefined) return 1;
-    const lastId = projects[lastItemIndex]?.id;
-    const nextId = lastId + 1;
-    return nextId;
+    const projects = await Project.getAllProjects()
+    const lastItemIndex =
+        projects?.length !== 0 ? projects.length - 1 : undefined
+    if (lastItemIndex === undefined) return 1
+    const lastId = projects[lastItemIndex]?.id
+    const nextId = lastId + 1
+    return nextId
 }
 
 module.exports = router

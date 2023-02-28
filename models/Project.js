@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb')
 
-const MONGO_URI = "mongodb://localhost:27017"
+const MONGO_URI = 'mongodb://localhost:27017'
 
 const getAllProjects = async () => {
     const client = new MongoClient(MONGO_URI)
@@ -42,7 +42,9 @@ const updateProject = async (id, project) => {
     const client = new MongoClient(MONGO_URI)
     await client.connect()
     const db = client.db('projects')
-    const result = await db.collection('projects').updateOne({ id }, { $set: project })
+    const result = await db
+        .collection('projects')
+        .updateOne({ id }, { $set: project })
     await client.close()
     return result
 }

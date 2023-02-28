@@ -2,8 +2,8 @@ const supertest = require('supertest')
 const app = require('../../app')
 
 /*
-* GET /projects test suite
-*/
+ * GET /projects test suite
+ */
 describe('GET /projects', () => {
     it('should return 200 OK', () => {
         return supertest(app).get('/projects').expect(200)
@@ -11,8 +11,8 @@ describe('GET /projects', () => {
 })
 
 /*
-* POST /projects test suite
-*/
+ * POST /projects test suite
+ */
 describe('POST /projects', () => {
     it('should return 404 NOT FOUND', () => {
         return supertest(app).post('/projects').expect(404)
@@ -126,8 +126,8 @@ describe('POST /projects', () => {
 })
 
 /*
-* GET /projects/:id test suite
-*/
+ * GET /projects/:id test suite
+ */
 describe('GET /projects/:id', () => {
     it('should return 200 OK', () => {
         return supertest(app).get('/projects/1').expect(200)
@@ -139,8 +139,8 @@ describe('GET /projects/:id', () => {
 })
 
 /*
-* DELETE /projects/:id test suite
-*/
+ * DELETE /projects/:id test suite
+ */
 describe('DELETE /projects/:id', () => {
     it('should return 200 OK', () => {
         return supertest(app).delete('/projects/2').expect(200)
@@ -152,8 +152,8 @@ describe('DELETE /projects/:id', () => {
 })
 
 /*
-* PATCH /projects/:id test suite
-*/
+ * PATCH /projects/:id test suite
+ */
 describe('PATCH /projects/:id', () => {
     it('should return 200 OK', () => {
         return supertest(app)
