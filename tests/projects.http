@@ -1,0 +1,36 @@
+@baseUrl = http://localhost:3000
+
+### Get all projects
+GET {{baseUrl}}/projects
+
+### Create a project
+POST {{baseUrl}}/projects
+Content-Type: application/json
+
+{
+    "name": "My Project",
+    "description": "My Project Description",
+    "version": "1.0.0",
+    "author": "John Doe",
+    "license": "MIT",
+    "repository": "https://github.com"
+}
+
+### Get a project
+GET {{baseUrl}}/projects/1
+
+### Update a project
+PATCH {{baseUrl}}/projects/1
+Content-Type: application/json
+
+{
+    "name": "My Project Updated",
+    "description": "My Project Description",
+    "version": "1.0.0",
+    "author": "John Doe",
+    "license": "MIT",
+    "repository": "https://github.com"
+}
+
+### Delete a project
+DELETE {{baseUrl}}/projects/1
