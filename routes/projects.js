@@ -4,7 +4,7 @@ const router = express.Router()
 const Project = require('../models/Project')
 
 router.get('/', async (req, res, next) => {
-    return res.status(200).json(Project.getAllProjects())
+    return res.status(200).json(await Project.getAllProjects())
 })
 
 router.post('/', async (req, res, next) => {
@@ -56,6 +56,8 @@ router.get('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     const { id } = req.params
 
+    console.log(id)
+
     const project = await Project.findProjectById(parseInt(id, 10))
 
     if (!project) {
@@ -64,9 +66,9 @@ router.delete('/:id', async (req, res, next) => {
         })
     }
 
-    await Project.deleteProject(id)
+    const result = await Project.deleteProject(parseInt(id, 10))
 
-    return res.sendStatus(200)
+    return res.status(200).json(result)
 })
 
 router.patch('/:id', async (req, res, next) => {
